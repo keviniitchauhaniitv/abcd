@@ -1,0 +1,490 @@
+/* Global background image */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url("jj.jpg") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+}
+
+/* Container base */
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 32px;
+  border-radius: 12px;
+  width: 360px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  display: none;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.container.large {
+  width: 86%;
+  max-width: 980px;
+}
+
+.container.active {
+  display: flex;
+}
+
+/* Headings & paragraph colors */
+h1, h2, h3 {
+  color: #083a77;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+p {
+  color: #333;
+  font-size: 16px;
+}
+
+/* Input & select fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #2F80ED;
+  background-color: #e7f3fe;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 12px 0;
+  border-radius: 10px;
+  border: none;
+  background-color: #2F80ED;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #56CCF2;
+}
+
+button:active {
+  background-color: #2F80ED;
+  transform: translateY(2px);
+}
+
+/* Back button */
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 56px;
+  height: 36px;
+  background: #2F80ED;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #56CCF2;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background-color: #083a77;
+  color: white;
+  font-size: 16px;
+}
+
+td {
+  font-size: 14px;
+}
+
+/* Hover effects for table rows */
+tr:hover {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+/* Smaller action buttons */
+.btn-small {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* All Students Section Heading */
+#allStudents h2 {
+  background-color: #083a77; /* Blue background for the heading */
+  color: white; /* White text color */
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* Absent Students Section Heading */
+#absentStudents h2 {
+  background-color: #083a77; /* Blue background for the heading */
+  color: white; /* White text color */
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* All Students Section */
+#allStudents {
+  color: black; /* Set text color to black */
+}
+
+/* Adjust table font size and padding on mobile */
+  #allStudents th,
+  #allStudents td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+/* Absent Students Section */
+#absentStudents {
+  color: black; /* Set text color to black */
+}
+
+#absentList {
+  color: black; /* Ensure text in the absent list is black */
+}
+
+#absentList li {
+  color: black; /* Set each list item text color to black */
+}
+
+
+/* Mark Attendance Text Color */
+#scanResult {
+  color: black; /* Change the text color to black */
+}
+
+ /* Adjust the general layout of the Attendance dashboard and students list */
+  .container.large {
+    width: 95%; /* Ensure the containers are smaller on mobile */
+    padding: 20px;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Adjust the table layout for mobile */
+  #studentsTable th,
+  #studentsTable td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #studentsTable {
+    font-size: 14px;
+  }
+
+
+/* Manual Tab Table */
+#manualAttendanceTable {
+  background-color: white;
+  color: black; /* Ensure the text inside the table is black */
+}
+
+#manualAttendanceTable th {
+  color: rgb(255, 255, 255); /* White text color */
+}
+#manualAttendanceTable td {
+  color: black; /* Ensure table headers and cells have black text */
+}
+
+.btn-small:hover {
+  background-color: #45a049;
+}
+
+.btn-small:nth-child(2) {
+  background-color: #e53935;
+}
+
+.btn-small:nth-child(2):hover {
+  background-color: #c62828;
+}
+
+/* QR Scanner */
+#qr-reader {
+  border: 2px dashed #083a77;
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 12px;
+  width: 220px;
+  height: 220px;
+  justify-content: center;
+  margin: auto;
+}
+
+#qrPreview {
+  margin-top: 16px;
+}
+
+#savedStudentCard {
+  border: 1px dashed #ccc;
+  padding: 16px;
+  border-radius: 12px;
+  background: #fff9f0;
+}
+
+/* QR reader container */
+#qr-reader {
+  border: 2px dashed #083a77; /* Dashed border around the QR scanner */
+  background: #fafafa; /* Light background for the scanner */
+  padding: 10px;
+  border-radius: 12px; /* Round the corners */
+  width: 100%; /* Make the width 100% of the parent container */
+  max-width: 400px; /* Max width to ensure it's not too large */
+  height: 300px; /* Set a fixed height */
+  margin: 0 auto; /* Center the scanner */
+  overflow: hidden; /* Hide any overflow content */
+}
+
+/* Ensure that the video or image from the scanner fits within the container */
+#qr-reader video {
+  width: 100%; /* Ensure the video width fits within the container */
+  height: 100%; /* Ensure the video height fits within the container */
+  object-fit: cover; /* Ensure the video scales appropriately to cover the area */
+}
+
+
+/* Attendance Dashboard */
+#attendanceDashboard {
+  padding: 16px;
+}
+
+#attendanceChart {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+/* Today's Attendance (Pie Chart) */
+.attendance-summary {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+/* Attendance Dashboard Adjustments */
+.attendance-summary {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filter-options {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filter-options select {
+  padding: 8px 15px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.absent-students {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.absent-students h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.absent-students ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.absent-students li {
+  background-color: #f8f8f8;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.absent-students li span {
+  font-weight: bold;
+}
+
+/* For Mobile */
+@media (max-width: 768px) {
+  .attendance-summary, .filter-options, .absent-students {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .filter-options select {
+    width: 100%;
+  }
+
+  .absent-students ul {
+    font-size: 14px;
+  }
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .dashboard-container {
+    margin: 10px;
+  }
+
+  .attendance-summary,
+  .filter-options,
+  .absent-students {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .filter-options select {
+    width: 100%;
+  }
+
+  .absent-students ul {
+    font-size: 14px;
+  }
+}
+
+
+/* Toast notifications */
+#toastContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+}
+
+.toast {
+  background: #083a77;
+  color: #e8fdd9;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.16);
+  animation: toastIn .4s ease, toastOut .4s ease 3.6s forwards;
+  font-weight: 600;
+}
+
+@keyframes toastIn {
+  from { transform: translateX(20px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toastOut {
+  to   { transform: translateX(30px); opacity: 0; }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container.large {
+    width: 96%;
+    padding: 18px;
+  }
+
+  .back-btn {
+    left: 6px;
+    top: 8px;
+    width: 46px;
+    height: 34px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="file"],
+  select {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  .btn-small {
+    font-size: 12px;
+  }
+}
