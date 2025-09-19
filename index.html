@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nex Gen Shiksha</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- QRCode + Chart.js + Html5Qrcode -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+
+<body>
+
+  <!-- Landing Page -->
+  <div class="container active" id="landing">
+    <h1>Nex Gen Shiksha</h1>
+    <p>Welcome! Choose your action:</p>
+    <button onclick="showPage('signup')">Sign Up</button>
+    <button onclick="showPage('login')">Login</button>
+  </div>
+
+  <!-- Signup Page -->
+  <div class="container" id="signup">
+    <button class="back-btn" onclick="goBack()">Back</button>
+    <h2>Teacher Sign Up</h2>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="handleSignup()">Register</button>
+  </div>
+
+  <!-- Login Page -->
+  <div class="container" id="login">
+    <button class="back-btn" onclick="goBack()">Back</button>
+    <h2>Login</h2>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button onclick="handleLogin()">Login</button>
+  </div>
+
+  <!-- Dashboard Page -->
+  <div class="container large" id="dashboard">
+    <button class="back-btn" onclick="goBack()">Back</button>
+    <h2>Dashboard</h2>
+    <div class="grid">
+      <button onclick="showPage('addStudent')">Add Student</button>
+      <button onclick="showPage('allStudents')">All Students</button>
+      <button onclick="showPage('markAttendance')">Mark Attendance</button>
+      <button onclick="showPage('absentStudents')">Absent Students</button>
+      <button onclick="showPage('attendanceDashboard')">Attendance Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Add Student Page -->
+  <div class="container" id="addStudent">
+    <button class="back-btn" onclick="goBack()">Back</button>
+    <h2>Add Student</h2>
+    <div id="addStudentForm">
+      <input type="text" id="studentName" placeholder="Student Name">
+      <input type="text" id="rollNo" placeholder="Roll Number">
+      <input type="text" id="fatherName" placeholder="Father's Name">
+      <input type="text" id="contactNo" placeholder="Parent Contact">
+      <input type="file" id="csvFile" accept=".csv">
+      <button onclick="uploadCSV()">Upload CSV</button>
+      <button onclick="saveStudent()">Save Student</button>
+    </div>
+
+    <div id="savedStudentCard" style="display:none;">
+      <div id="savedStudentDetails"></div>
+      <div id="qrPreview"></div>
+      <button onclick="prepareAddNext()">Add Another</button>
+    </div>
+  </div>
+
+  <!-- All Students Page -->
+  <div class="container large" id="allStudents">
+    <button class="back-btn" onclick="goBack()">Back</button>
+    <h2>All Students</h2>
+    <table id="studentsTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Roll</th>
+          <th>Father</th>
+          <th>Contact</th>
+          <th>QR</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Mark Attendance Page -->
+  <div class="container large" id="markAttendance">
+    <button class="back-btn" onclick="goBack()">Back</button>
+    <h2>Mark Attendance</h2>
+    <div class="tabs">
+      <button onclick="switchTab('qrTab')">QR Scan</button>
+      <button onclick="switchTab('manualTab')">Manual</button>
+    </div>
+
+    <div id="qrTab" class="tab-content">
+      <div id="qr-reader" style="width: 220px; height: 220px; margin: auto;"></div>
+      <div id="scanResult">Awaiting scan...</div>
+    </div>
+
+    <div id="manualTab" class="tab-content hidden">
+      <table id="manualAttendanceTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Absent Students Page -->
+  <div class="container large" id="absentStudents">
+    <button class="back-btn" onclick="goBack()">Back</button>
+    <h2>Absent Students</h2>
+    <ul id="absentList"></ul>
+  </div>
+
+<!-- Attendance Dashboard Page -->
+<div class="container large" id="attendanceDashboard">
+  <button class="back-btn" onclick="goBack()">Back</button>
+  <h2>Attendance Dashboard</h2>
+
+  <!-- Today's Attendance with Pie Chart -->
+  <div class="attendance-summary">
+    <h3>Today's Attendance</h3>
+    <canvas id="todayAttendancePieChart"></canvas>
+  </div>
+
+  <!-- Filter Options for Weekly/Monthly Analysis -->
+  <div class="filter-options">
+    <h3>Filter by:</h3>
+    <select id="attendanceFilter">
+      <option value="today">Today</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+    </select>
+  </div>
+
+  <!-- Absent Students -->
+  <div class="absent-students">
+    <h3>Absent Students</h3>
+    <ul id="absentListDashboard"></ul> <!-- unique ID to avoid collision -->
+  </div>
+</div>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer"></div>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
